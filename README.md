@@ -26,14 +26,14 @@ dicebot('a b c d3')    // values = [ one of a, b, c, 1, 2, 3 ]
 `npm i -g dicebot`
 
 ```sh
-dicebot 6             // values = [ 1 -> 6 ]
-dicebot '6 6 6'       // values = [ 1 -> 6, 1 -> 6, 1 -> 6, 1 -> 6 ]
-dicebot 'd6'          // values = [ 1 -> 6 ]
-dicebot '4D6'         // values = [ (1 -> 6) + (1 -> 6) + (1 -> 6) + (1 -> 6) ]
-dicebot '10*(4d6+50)' // values = [ 10 * ((4 lots of 1 -> 6) + 50) ]
-dicebot 'heads tails' // values = [ heads or tails ]
-dicebot 'a,b,c'       // values = [ one of a, b, or c ]
-dicebot 'a b c d3'    // values = [ one of a, b, c, 1, 2, 3 ]
+dicebot 6
+dicebot '6 6 6'
+dicebot 'd6'
+dicebot '4D6'
+dicebot '10*(4d6+50)'
+dicebot 'heads tails'
+dicebot 'a,b,c'
+dicebot 'a b c d3'
 ```
 
 ## Developing
