@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 
+const chalk = require('chalk')
 const dicebot = require('..')
 const { args, values, sum, average } = dicebot(process.argv[2])
 
-console.log(`args: ${args.join(' ')}`)
-console.log(`values: ${values}`)
-console.log(`sum: ${sum}`)
-console.log(`average: ${average}`)
+console.log(`${chalk.gray('   args')} ${chalk.gray(args.join(' '))}`)
+console.log(` values ${chalk.bold.blueBright(values)}`)
+console.log(`    sum ${chalk.green(sum)}`)
+console.log(`average ${chalk.green(average)}`)
