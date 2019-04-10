@@ -45,15 +45,21 @@ test('dY', () => {
   expect(result.average).toBeBetween(1, 6)
 })
 
-test('XdY', () => {
-  const result = roll('4D6')
+test('XDY XdY', () => {
+  const result = roll('4D6 4d6')
 
-  expect(result.values.length).toBe(1)
+  expect(result.values.length).toBe(8)
 
-  expect(result.values[0]).toBeBetween(4, 24)
+  expect(result.values[0]).toBeBetween(1, 6)
+  expect(result.values[2]).toBeBetween(1, 6)
+  expect(result.values[3]).toBeBetween(1, 6)
+  expect(result.values[4]).toBeBetween(1, 6)
+  expect(result.values[5]).toBeBetween(1, 6)
+  expect(result.values[6]).toBeBetween(1, 6)
+  expect(result.values[7]).toBeBetween(1, 6)
 
-  expect(result.sum).toBeBetween(4, 24)
-  expect(result.average).toBeBetween(4, 24)
+  expect(result.sum).toBeBetween(8, 8 * 24)
+  expect(result.average).toBeBetween(1, 8 * 24)
 })
 
 test('arithmetic XdY', () => {
@@ -68,7 +74,7 @@ test('arithmetic XdY', () => {
 })
 
 test('strings (with ds)', () => {
-  const result = roll('heads tail')
+  const result = roll('heads tails')
 
   expect(result.values.length).toBe(1)
 
@@ -92,6 +98,16 @@ test('strings with d', () => {
 test('comma delimiter', () => {
   const result = roll('a,b, c')
 
+  expect(result.values.length).toBe(1)
+
+  expect(['a', 'b', 'c']).toContain(result.values[0])
+
+  expect(result.sum).toBe(0)
+  expect(result.average).toBe(0)
+})
+
+test('performace 10,000 takes 1-2s 1,000,000 takes ~15s', () => {
+  const result = roll(' a'.repeat(10000))
   expect(result.values.length).toBe(1)
 
   expect(['a', 'b', 'c']).toContain(result.values[0])

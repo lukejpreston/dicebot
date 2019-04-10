@@ -10,7 +10,7 @@ const schema = {
   word: { type: 'number', convert: true }
 }
 
-const dice = (word) => {
+const diceSum = (word) => {
   const re = /(\d*)d(\d+)/g
   const matched = re.exec(('' + word).toLowerCase())
   if (matched !== null) {
@@ -23,7 +23,24 @@ const dice = (word) => {
   return word
 }
 
-const rollNumbers = (numbers) => numbers.map(number => chance.integer({ min: 1, max: number }))
+const dice = (word) => {
+  const re = /(\d*)d(\d+)/g
+  const matched = re.exec(('' + word).toLowerCase())
+  let res = []
+  if (matched !== null) {
+    const times = parseInt(matched[1], 10) || 1
+    const sides = parseInt(matched[2], 10)
+    for (let i = 0; i < times; i++) res.push(chance.integer({ min: 1, max: sides }))
+  }
+  return res
+}
+
+const rollNumbers = (numbers) => {
+  return numbers.map(number => {
+    if (typeof number === 'string') return dice(number)
+    return [chance.integer({ min: 1, max: number })]
+  }).reduce((acc, cur) => acc.concat(cur), [])
+}
 
 module.exports = (input = '') => {
   input = '' + input
@@ -38,11 +55,11 @@ module.exports = (input = '') => {
 
   let values = []
   let args = []
-  const hasString = words.some(word => typeof word === 'string')
-  if (hasString) {
-    const rolledWords = words.map(dice)
-    const hasString = rolledWords.some(word => typeof word === 'string')
-    if (hasString) {
+  const hasNoneDiceOrNumbers = words.some(word => typeof word === 'string' && word.toLowerCase().match(/(\d*)d(\d+)/g) === null)
+  if (hasNoneDiceOrNumbers) {
+    const rolledWords = words.map(diceSum)
+    const hasNoneDiceOrNumbers = rolledWords.some(word => typeof word === 'string')
+    if (hasNoneDiceOrNumbers) {
       try {
         values.push(parser.parse(rolledWords.join('')).evaluate())
         args = rolledWords
