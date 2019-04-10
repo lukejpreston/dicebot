@@ -11,7 +11,15 @@
     "lint": "eslint *.js && echo Lint Free"
   },
   "keywords": ["dice", "bot", "dicebot", "random", "calc"],
-  "author": "Luke Preston <lukejpreston@gmail.com>",
+  "author": "lukejpreston <lukejpreston@gmail.com>",
+  "repository": {
+    "url": "https://github.com/lukejpreston/dicebot.git",
+    "type": "git"
+  },
+  "bugs": {
+    "url": "https://github.com/lukejpreston/dicebot.git"
+  },
+  "homepage": "https://lukejpreston.github.io/dicebot",
   "license": "MIT",
   "dependencies": {
     "chance": "^1.0.18",
