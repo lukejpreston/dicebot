@@ -1,6 +1,6 @@
 {
   "name": "dicebot",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple function which takes a `string` (or `number`) and returns some dice stats",
   "main": "index.js",
   "bin": {
@@ -10,7 +10,13 @@
     "test": "jest",
     "lint": "eslint *.js && echo Lint Free"
   },
-  "keywords": ["dice", "bot", "dicebot", "random", "calc"],
+  "keywords": [
+    "dice",
+    "bot",
+    "dicebot",
+    "random",
+    "calc"
+  ],
   "author": "lukejpreston <lukejpreston@gmail.com>",
   "repository": {
     "url": "https://github.com/lukejpreston/dicebot.git",
