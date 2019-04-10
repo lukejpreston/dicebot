@@ -4,7 +4,7 @@
   "description": "A simple function which takes a `string` (or `number`) and returns some dice stats",
   "main": "index.js",
   "bin": {
-    "toascii": "bin/toascii"
+    "dicebot": "bin/dicebot"
   },
   "scripts": {
     "test": "jest",
