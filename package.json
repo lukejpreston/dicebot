@@ -1,15 +1,18 @@
 {
   "name": "dicebot",
   "version": "1.0.0",
-  "description": "",
+  "description": "A simple function which takes a `string` (or `number`) and returns some dice stats",
   "main": "index.js",
+  "bin": {
+    "toascii": "bin/toascii"
+  },
   "scripts": {
     "test": "jest",
     "lint": "eslint *.js && echo Lint Free"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["dice", "bot", "dicebot", "random", "calc"],
+  "author": "Luke Preston <lukejpreston@gmail.com>",
+  "license": "MIT",
   "dependencies": {
     "chance": "^1.0.18",
     "expr-eval": "^1.2.2",
