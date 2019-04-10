@@ -31,7 +31,8 @@
     "chalk": "^2.4.2",
     "chance": "^1.0.18",
     "expr-eval": "^1.2.2",
-    "fastest-validator": "^0.6.17"
+    "fastest-validator": "^0.6.17",
+    "yargs": "^13.2.2"
   },
   "eslintConfig": {
     "extends": [

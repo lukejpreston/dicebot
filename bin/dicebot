@@ -1,10 +1,35 @@
 #!/usr/bin/env node
 
 const chalk = require('chalk')
+const yargs = require('yargs')
 const dicebot = require('..')
-const { args, values, sum, average } = dicebot(process.argv[2])
 
-console.log(`${chalk.gray('   args')} ${chalk.gray(args.join(' '))}`)
-console.log(` values ${chalk.bold.blueBright(values)}`)
-console.log(`    sum ${chalk.green(sum)}`)
-console.log(`average ${chalk.green(average)}`)
+const argv = yargs
+  .option('values', {
+    type: 'boolean',
+    alias: 'v',
+    default: false
+  })
+  .option('sum', {
+    type: 'boolean',
+    alias: 's',
+    default: false
+  })
+  .option('average', {
+    type: 'boolean',
+    alias: 'a',
+    default: false
+  })
+  .argv
+
+const { args, values, sum, average } = dicebot(argv._)
+
+if (argv.values) console.log(values.join(' '))
+else if (argv.sum) console.log(sum)
+else if (argv.average) console.log(average)
+else {
+  console.log(`${chalk.gray('   args')} ${chalk.gray(args.join(' '))}`)
+  console.log(` values ${chalk.bold.blueBright(values)}`)
+  console.log(`    sum ${chalk.green(sum)}`)
+  console.log(`average ${chalk.green(average)}`)
+}
