@@ -35,8 +35,32 @@ dicebot 4d6 10d6
 # average average of (1->6,1->6,1->6,1->6)
 
 dicebot --values 4d6 # 1->6 1->6 1->6 1->6
+dicebot -v 4d6 # 1->6 1->6 1->6 1->6
 dicebot --sum 4d6 # sum of (1->6 1->6 1->6 1->6)
+dicebot -s 4d6 # sum of (1->6 1->6 1->6 1->6)
 dicebot --average 4d6 # average of (1->6 1->6 1->6 1->6)
+dicebot -a 4d6 # average of (1->6 1->6 1->6 1->6)
+```
+
+## FUN ZONE
+
+Some aliases you might like to do
+
+```sh
+alias coin='dicebot heads tail -v'
+
+alias d4='dicebot d4 -v'
+alias d6='dicebot d6 -v'
+alias d10='dicebot d10 -v'
+alias d12='dicebot d12 -v'
+alias d20='dicebot d20 -v'
+alias d100='dicebot d100 -v'
+
+play () {
+    echo "'$1' tried to '$2' which was `dicebot AN_EPIC_FAILURE A_FAILURE A_MIXED_FAILURE A_MIXED_SUCCESS A_SUCCESS AN_EPIC_SUCCESS -v`"
+}
+
+play Luke "fried some bacon"
 ```
 
 ## Developing
