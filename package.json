@@ -1,6 +1,6 @@
 {
   "name": "dicebot",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A simple function which takes a `string` (or `number`) and returns some dice stats",
   "main": "index.js",
   "bin": {
