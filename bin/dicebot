@@ -1,0 +1,9 @@
+#!/usr/bin/env node
+
+const dicebot = require('..')
+const { args, values, sum, average } = dicebot(process.argv[2])
+
+console.log(`args: ${args.join(' ')}`)
+console.log(`values: ${values}`)
+console.log(`sum: ${sum}`)
+console.log(`average: ${average}`)

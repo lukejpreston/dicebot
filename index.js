@@ -11,7 +11,7 @@ const schema = {
 }
 
 const dice = (word) => {
-  const re = /(\d*)d(\d*)/g
+  const re = /(\d*)d(\d+)/g
   const matched = re.exec(('' + word).toLowerCase())
   if (matched !== null) {
     const times = parseInt(matched[1], 10) || 1
@@ -37,6 +37,7 @@ module.exports = (input = '') => {
     })
 
   let values = []
+  let args = []
   const hasString = words.some(word => typeof word === 'string')
   if (hasString) {
     const rolledWords = words.map(dice)
@@ -44,14 +45,18 @@ module.exports = (input = '') => {
     if (hasString) {
       try {
         values.push(parser.parse(rolledWords.join('')).evaluate())
+        args = rolledWords
       } catch (ignoreError) {
         values.push(chance.pickone(rolledWords))
+        args = rolledWords
       }
     } else {
       values = rolledWords
+      args = rolledWords
     }
   } else {
     values = rollNumbers(words)
+    args = words
   }
 
   const numbers = values.filter(value => typeof value === 'number')
@@ -59,6 +64,7 @@ module.exports = (input = '') => {
   const average = (sum / numbers.length) || 0
 
   return {
+    args,
     values,
     sum,
     average

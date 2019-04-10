@@ -67,34 +67,34 @@ test('arithmetic XdY', () => {
   expect(result.average).toBeBetween(10 * (4 + 50), 10 * (24 + 50))
 })
 
-test('strings', () => {
-  const result = roll('luke matt tim')
+test('strings (with ds)', () => {
+  const result = roll('heads tail')
 
   expect(result.values.length).toBe(1)
 
-  expect(['luke', 'matt', 'tim']).toContain(result.values[0])
+  expect(['heads', 'tails']).toContain(result.values[0])
 
   expect(result.sum).toBe(0)
   expect(result.average).toBe(0)
 })
 
 test('strings with d', () => {
-  const result = roll('luke matt tim d3')
+  const result = roll('a b c d3')
 
   expect(result.values.length).toBe(1)
 
-  expect(['luke', 'matt', 'tim', 1, 2, 3]).toContain(result.values[0])
+  expect(['a', 'b', 'c', 1, 2, 3]).toContain(result.values[0])
 
   expect(result.sum).toBeBetween(0, 3)
   expect(result.average).toBeBetween(0, 3)
 })
 
 test('comma delimiter', () => {
-  const result = roll('luke,matt, tim')
+  const result = roll('a,b, c')
 
   expect(result.values.length).toBe(1)
 
-  expect(['luke', 'matt', 'tim']).toContain(result.values[0])
+  expect(['a', 'b', 'c']).toContain(result.values[0])
 
   expect(result.sum).toBe(0)
   expect(result.average).toBe(0)
