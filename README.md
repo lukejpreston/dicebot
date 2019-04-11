@@ -2,6 +2,8 @@
 
 A simple function which takes a `string` (or `number`) and returns some dice stats
 
+It works in the browser and from node. Checkout the [demo](https://lukejpreston.github.io/dicebot)
+
 ## Usage
 
 `npm i -S dicebot`
