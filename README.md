@@ -69,4 +69,5 @@ play Luke "fried some bacon"
 npm i
 npm test
 npm lint
+npm start
 ```

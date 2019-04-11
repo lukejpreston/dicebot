@@ -2,13 +2,16 @@
   "name": "dicebot",
   "version": "1.0.6",
   "description": "A simple function which takes a `string` (or `number`) and returns some dice stats",
-  "main": "index.js",
+  "main": "src/dicebot.js",
   "bin": {
     "dicebot": "bin/dicebot"
   },
   "scripts": {
     "test": "jest",
-    "lint": "eslint *.js && echo Lint Free"
+    "lint": "eslint *.js src && echo Lint Free",
+    "start": "SKIP_PREFLIGHT_CHECK=true react-scripts start",
+    "build": "SKIP_PREFLIGHT_CHECK=true react-scripts build",
+    "eject": "SKIP_PREFLIGHT_CHECK=true react-scripts eject"
   },
   "keywords": [
     "dice",
@@ -34,22 +37,37 @@
     "fastest-validator": "^0.6.17",
     "yargs": "^13.2.2"
   },
-  "eslintConfig": {
-    "extends": [
-      "standard"
-    ],
-    "env": {
-      "jest": true,
-      "jasmine": true
-    }
-  },
   "devDependencies": {
+    "@material-ui/core": "^3.9.3",
+    "@material-ui/icons": "^3.0.2",
     "eslint": "^5.16.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-node": "^8.0.1",
     "eslint-plugin-promise": "^4.1.1",
     "eslint-plugin-standard": "^4.0.0",
-    "jest": "^24.7.1"
-  }
+    "jest": "^24.7.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "2.1.8",
+    "standard-react": "^4.0.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "standard",
+      "standard-react"
+    ],
+    "env": {
+      "browser": true,
+      "jest": true,
+      "jasmine": true
+    },
+    "parser": "babel-eslint"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
