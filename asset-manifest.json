@@ -1,0 +1,11 @@
+{
+  "main.js": "/dicebot/static/js/main.3fa29db7.chunk.js",
+  "main.js.map": "/dicebot/static/js/main.3fa29db7.chunk.js.map",
+  "runtime~main.js": "/dicebot/static/js/runtime~main.85fe13b8.js",
+  "runtime~main.js.map": "/dicebot/static/js/runtime~main.85fe13b8.js.map",
+  "static/js/2.6cab279c.chunk.js": "/dicebot/static/js/2.6cab279c.chunk.js",
+  "static/js/2.6cab279c.chunk.js.map": "/dicebot/static/js/2.6cab279c.chunk.js.map",
+  "index.html": "/dicebot/index.html",
+  "precache-manifest.b7cce012f8a64035badeee516176ef35.js": "/dicebot/precache-manifest.b7cce012f8a64035badeee516176ef35.js",
+  "service-worker.js": "/dicebot/service-worker.js"
+}
