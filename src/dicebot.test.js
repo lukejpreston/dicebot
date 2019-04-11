@@ -1,4 +1,4 @@
-const roll = require('.')
+const dicebot = require('.')
 
 expect.extend({
   toBeBetween (result, min, max) {
@@ -11,7 +11,7 @@ expect.extend({
 })
 
 test('a number', () => {
-  const result = roll(6)
+  const result = dicebot(6)
 
   expect(result.values.length).toBe(1)
 
@@ -22,7 +22,7 @@ test('a number', () => {
 })
 
 test('multiple numbers', () => {
-  const result = roll('6 6 6')
+  const result = dicebot('6 6 6')
 
   expect(result.values.length).toBe(3)
 
@@ -35,7 +35,7 @@ test('multiple numbers', () => {
 })
 
 test('dY', () => {
-  const result = roll('D6')
+  const result = dicebot('D6')
 
   expect(result.values.length).toBe(1)
 
@@ -46,7 +46,7 @@ test('dY', () => {
 })
 
 test('XDY XdY', () => {
-  const result = roll('4D6 4d6')
+  const result = dicebot('4D6 4d6')
 
   expect(result.values.length).toBe(8)
 
@@ -63,7 +63,7 @@ test('XDY XdY', () => {
 })
 
 test('arithmetic XdY', () => {
-  const result = roll('10*(4d6+50)')
+  const result = dicebot('10*(4d6+50)')
 
   expect(result.values.length).toBe(1)
 
@@ -74,7 +74,7 @@ test('arithmetic XdY', () => {
 })
 
 test('strings (with ds)', () => {
-  const result = roll('heads tails')
+  const result = dicebot('heads tails')
 
   expect(result.values.length).toBe(1)
 
@@ -85,7 +85,7 @@ test('strings (with ds)', () => {
 })
 
 test('strings with d', () => {
-  const result = roll('a b c d3')
+  const result = dicebot('a b c d3')
 
   expect(result.values.length).toBe(1)
 
@@ -96,7 +96,7 @@ test('strings with d', () => {
 })
 
 test('comma delimiter', () => {
-  const result = roll('a,b, c')
+  const result = dicebot('a,b, c')
 
   expect(result.values.length).toBe(1)
 
@@ -107,7 +107,7 @@ test('comma delimiter', () => {
 })
 
 test('performace 10,000 takes 1-2s 1,000,000 takes ~15s', () => {
-  const result = roll(' a'.repeat(10000))
+  const result = dicebot(' a'.repeat(10000))
   expect(result.values.length).toBe(1)
 
   expect(['a', 'b', 'c']).toContain(result.values[0])
